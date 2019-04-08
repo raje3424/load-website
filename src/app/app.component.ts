@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { HttpService } from '../_service/http.service';
 
-//import * as $ from 'jquery';
+//import * as $ from 'jquery';;;;
 declare var $: any;
 
 @Component({
