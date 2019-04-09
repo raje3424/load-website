@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { HttpService } from '../_service/http.service';
 
-//import * as $ from 'jquery';;;;
+//import * as $ from 'jquery';;;; 18004194000
 declare var $: any;
 
 @Component({
@@ -33,7 +33,13 @@ export class AppComponent implements OnInit {
   enquiry() {
     console.warn(this.enquiryForm.value);
     this._httpService.saveEnquiry(this.enquiryForm.value)
-    .subscribe(res => console.log(res));
+    .subscribe(
+      data => {
+          console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
   }
   
 
