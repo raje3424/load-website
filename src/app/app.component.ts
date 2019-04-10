@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import { HttpService } from '../_service/http.service';
 
@@ -13,14 +13,18 @@ declare var $: any;
 })
 export class AppComponent implements OnInit {
   title = 'load-web';
+  enquiryForm: FormGroup;
+  successMsg;
+  errorMsg;
 
-  enquiryForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    comment: new FormControl('')
-  });
 
-  constructor(private _httpService: HttpService){}
+  constructor(private _httpService: HttpService, private formBuilder: FormBuilder){
+    this.enquiryForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      comment: ['', [Validators.required]],
+    });
+  }
 
   ngOnInit(): void {
     $(document).click(function(e) {
@@ -33,13 +37,28 @@ export class AppComponent implements OnInit {
   enquiry() {
     console.warn(this.enquiryForm.value);
     this._httpService.saveEnquiry(this.enquiryForm.value)
-    .subscribe(
-      data => {
-          console.log(data);
-      },
-      error => {
-        console.log(error);
-      });
+    .then(resp => {
+      console.log(resp);
+      if(resp == 'true'){
+        this.successMsg = 'Form Submitted Successfully!';
+        setTimeout(()=>{
+          this.enquiryForm.reset();
+          this.successMsg = '';
+        }, 1500);
+      }else {
+        this.errorMsg = 'Something went wrong, try again!';
+        setTimeout(()=>{
+          this.errorMsg = '';
+        }, 2000);
+      }
+    });
+    // .subscribe(
+    //   data => {
+    //       console.log(data);
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }); 18002007777
   }
   
 

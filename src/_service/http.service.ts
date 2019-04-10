@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/toPromise';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -26,11 +27,17 @@ export class HttpService {
 
   //configUrl = "http://localhost:8888/assets/load-server/interface.php";
   //configUrl = "http://localhost:8888/interface.php";
-  private configUrl:any = 'http://192.168.0.17:4447';
+  private configUrl:any = 'http://192.168.0.17:3000';
+  private headers = new Headers({'Content-Type': 'application/json'});
+
+  private handleError(error: any): Promise<any> {
+    console.error(error);
+    return Promise.reject(error.message || error);
+  }
 
   constructor(private http: Http) { }
 
-  saveEnquiry(value:any): Observable<any> {
+  saveEnquiry(value:any): Promise<any> {
     console.log(value);
     let data = {
       "function": "Hello",
@@ -45,9 +52,14 @@ export class HttpService {
 
       let options = new RequestOptions({ headers: headers });
 
-      return this.http.post(this.configUrl, data, options)
-                  .map(this.extractData)
-                  .catch(this.handleErrorObservable);
+      return this.http.post(this.configUrl, JSON.stringify(data), {headers: this.headers})
+          .toPromise()
+          .then(resp => resp.json())
+          .catch(this.handleError);
+
+      // return this.http.post(this.configUrl, data, options)
+      //             .map(this.extractData)
+      //             .catch(this.handleErrorObservable);
 
       // return this.http.post(this.configUrl, data, httpOptions)
       //       .pipe(map(res => {

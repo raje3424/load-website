@@ -387,7 +387,8 @@
           </div>
           <div class="form_content col-xs-12 col-sm-6">
             <div id="form_name">
-              <input type="text" value="" name="EMAIL" class="name_form" id="name" placeholder="Email" required=""  formControlName="email">
+              <input type="email" value="" name="EMAIL" class="name_form" id="name" placeholder="Email" required=""  formControlName="email">
+              <div class="form_faliure" *ngIf="enquiryForm.get('email').hasError('email') && enquiryForm.get('email').touched">Email must be a valid email address</div>
             </div>
           </div>
           <div class="form_content col-xs-12">
@@ -397,11 +398,11 @@
             <input [disabled]="!enquiryForm.valid" type="submit" value="Send" name="send" id="form_send">
           </div>
         </form>
-        <div style="display: none;" class="form_success">
-          <h5>Form Submitted Successfully</h5>
+        <div class="form_success">
+          <h5>{{successMsg}}</h5>
         </div>
-        <div style="display: none;" class="form_faliure">
-          <h5>Something went wrong...</h5>
+        <div class="form_faliure">
+          <h5>{{errorMsg}}</h5>
         </div>
     </div>
   </div>
