@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 
 export class HttpService {
 
-  private configUrl:any = 'http://192.168.0.17:3000/';
+  private configUrl:any = 'http://192.168.0.4:4447/';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   private handleError(error: any): Promise<any> {
@@ -35,7 +35,7 @@ export class HttpService {
       "Accept": "text/plain" 
     });
 
-    return this.http.post(this.configUrl,  {headers: this.headers})
+    return this.http.post(this.configUrl, value, {headers: this.headers})
         .toPromise()
         .then(resp => resp.json())
         .catch(this.handleError);
