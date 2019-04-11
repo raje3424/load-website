@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 
 export class HttpService {
 
-  private configUrl:any = 'http://192.168.0.17:4447/';
+  private configUrl:any = 'http://192.168.0.18:4447/';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   private handleError(error: any): Promise<any> {

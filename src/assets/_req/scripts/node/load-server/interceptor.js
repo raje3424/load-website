@@ -9,7 +9,7 @@ var express = require('express'),
   app.use(cors());
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/LoadDb'); 
+mongoose.connect('mongodb://localhost:27017/LoadDb'); 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
