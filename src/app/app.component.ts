@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 import { HttpService } from '../_service/http.service';
-
-//import * as $ from 'jquery';;;; 18004194000
+//import * as $ from 'jquery';
 declare var $: any;
 
 @Component({
@@ -11,12 +10,12 @@ declare var $: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   title = 'load-web';
   enquiryForm: FormGroup;
   successMsg;
   errorMsg;
-
 
   constructor(private _httpService: HttpService, private formBuilder: FormBuilder){
     this.enquiryForm = this.formBuilder.group({
@@ -52,13 +51,6 @@ export class AppComponent implements OnInit {
         }, 2000);
       }
     });
-    // .subscribe(
-    //   data => {
-    //       console.log(data);
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   }); 18002007777
   }
   
 
