@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, MinLengthValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { CommunicationService } from '../../../_service/communication.service';
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -17,7 +19,7 @@ export class LandingPageComponent implements OnInit {
   successMsg: any;
   errorMsg: any;
 
-  constructor(private formBuilder: FormBuilder, private _router: Router) {
+  constructor(private formBuilder: FormBuilder, private _router: Router, private _comService: CommunicationService) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -33,11 +35,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   ngOnInit() {
-      // this._comService.toggleVal.subscribe(currentData => 
-      //   {
-      //     this.toggleLoginBlockMethod(currentData);
-      //   }
-      // )
+      this._comService.toggleVal.subscribe(currentData => 
+        {
+          this.toggleLoginBlockMethod(currentData);
+        }
+      )
   }
 
   get password() {
