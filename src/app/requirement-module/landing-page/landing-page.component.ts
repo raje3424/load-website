@@ -86,7 +86,7 @@ export class LandingPageComponent implements OnInit {
             localStorage.setItem('token', JSON.stringify(resp.token));
             this._comService.showLogoutButtonMethod();
             this._comService.whoIsLoggedMethod('Admin');
-            this._router.navigateByUrl('adminHome');
+            this._router.navigateByUrl('admin');
           }, 1500);
         }else {
           this.successMsg = 'Wait...!';
@@ -96,7 +96,7 @@ export class LandingPageComponent implements OnInit {
             localStorage.setItem('token', JSON.stringify(resp.token));
             this._comService.showLogoutButtonMethod();
             this._comService.whoIsLoggedMethod('Affiliate');
-            this._router.navigateByUrl('affHome');
+            this._router.navigateByUrl('enquirer');
           }, 1500);
         }
       }else  if(resp.response == 'rfalse'){
