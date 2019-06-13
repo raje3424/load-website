@@ -1,0 +1,129 @@
+<div class="container-fluid">
+
+  <div class="row justify-content-end">  
+    <div class="col-1" [routerLink]="['/home']" routerLinkActive="router-link-active" >
+      <img src="../../../../../assets/images/cancle_button.png" class="_cancle_img">
+    </div>
+  </div>
+
+  <div class="row justify-content-center _title_panel">
+    <div class="col _title">
+      Enquiry Form
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <form class="_form_panel" [formGroup]="enquiryForm" (ngSubmit)="enquiry()">
+    <div class="row mb-4">
+      <div class="col _info_form">
+        Last 2 fileds are optional.
+      </div>
+    </div>
+    <div class="row mb-3"> <!-- row 1 >> -->
+
+      <div class="col col-xs-12">
+        <div class="form-group">
+          <input formControlName="studentFN" type="text" class="form-control" placeholder="Student Full Name" /> 
+        </div>
+      </div>
+      <div class="col col-xs-12">
+        <div class="form-group">
+          <input formControlName="parentFN" type="text" class="form-control" placeholder="Gurdian / Parent Full Name" />
+        </div>
+      </div>
+
+    </div> <!-- <</ row 1 -->
+
+    <div class="row mb-3"><!-- row 2 >> -->
+
+      <div class="col-6 col-xs-12">
+        <div class="form-group">
+          <input formControlName="schoolName" type="text" class="form-control" placeholder="School Name" />
+        </div>
+      </div>
+      <div class="col-3 col-xs-12">
+        <div class="form-group">
+          <input formControlName="class" type="text" class="form-control" placeholder="Class / Std." />
+        </div>
+      </div>
+      <div class="col-3 col-xs-12">
+        <div class="form-group dropdown">
+          <select formControlName="board" class="form-control">
+            <option>Select Board</option>
+            <option>State Board</option>
+            <option>CBSC</option>
+            <option>ICSC</option>
+          </select>
+        </div>
+      </div>
+
+    </div><!-- <</ row 2 -->
+
+    <div class="row mb-3"><!-- row 3 >> -->
+      <div class="col-6 col-xs-12">
+        <div class="form-group">
+          <input formControlName="email" type="email" class="form-control" placeholder="Email Address" />
+          <div class="form_faliure" *ngIf="enquiryForm.get('email').hasError('email') && enquiryForm.get('email').touched">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="col-6 col-xs-12">
+        <div class="form-group">
+          <input  formControlName="mobNo"type="text" class="form-control" placeholder="Mobile No. / Phone no." />
+          <div *ngIf="mobNo.errors?.pattern">
+            Number only!
+          </div>
+        </div>
+      </div>
+    </div><!-- <</ row 3 -->
+
+    <div class="row mb-3"> <!-- row 4 >> -->
+      <div class="col-6 col-xs-12">
+        <div class="form-group">
+          <input  formControlName="address"type="text" class="form-control" placeholder="Address where you want to conduct tution." />
+        </div>
+      </div>
+      <div class="col-6 col-xs-12">
+        <div class="form-group">
+          <input  formControlName="landmark" type="text" class="form-control" placeholder="Landmark" />
+        </div>
+      </div>
+    </div> <!-- <</ row 4 -->
+
+    <div class="row mb-3"> <!-- row 5 >> -->
+      <div class="col-6 col-xs-12">
+        <div class="form-group">
+          <input formControlName="note" type="text" class="form-control" placeholder="Any other note" />
+        </div>
+      </div>
+      <div class="col-3 col-xs-6 _section_name">
+        <p class="_ref_lbl"> Reference Code : </p>
+      </div>
+      <div class="col-3 col-xs-6">
+        <div class="form-group">
+          <input formControlName="refCode" type="text" class="form-control" placeholder="code" />
+        </div>
+      </div>
+    </div> <!-- <</ row 5 -->
+
+    <div class="row mb-3">
+      <div class="col _info_form">
+        <p>
+          Our representative will soon contact you confirming your appointment and will also tell you further details.
+        </p>
+      </div>
+    </div>
+
+    <div class="row mb-3 justify-content-md-center">
+      <button type="submit" class="col-3 col-md-2 _get_in_touch" [disabled]="!enquiryForm.valid">
+        Submit
+      </button>
+      <div *ngIf="successMsg">{{successMsg}}</div>
+      <div *ngIf="errorMsg">{{errorMsg}}</div>
+    </div>
+
+  </form>
+  
+</div>

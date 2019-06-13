@@ -1,0 +1,63 @@
+._main_back_body{
+    height: 100vh;
+    background: url('../../../assets/images/1c4t.jpg');
+    background-clip: padding-box; 
+    background-position: center center;
+
+    ._message_a{
+        margin-top: 150px;
+        font-family: 'Roboto Medium';
+        font-size: 50px;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0px 0px 3px rgb(83, 0, 0);
+        background: #0000007e;
+    }
+
+    ._get_in_touch{
+        margin-top: 40px;
+        background: #ff0000;
+        border-radius: 40px;
+        color: #fff;
+        font-family: 'Avenir LT Stdx';
+        font-size: 21px;
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        box-shadow: 0px 2px 3px #000;
+    }
+
+}
+
+._loginPopUp{
+    width: 300px;
+    height: auto;
+    background: #fff;
+    box-shadow: 0px 0px 6px #c1c1c1;
+    position: absolute;
+    top: 85px;
+    right: 30px;
+    border-radius: 4px;
+    ._header{
+        border-bottom: 1px solid #c1c1c1;
+        ._title{
+            text-align: center;
+            padding: 10px;
+            font-family: Roboto Medium;
+            font-size: 18px;
+            color: #979797;
+        }
+    }
+    ._content{
+        padding: 10px;
+        .form-group{
+            margin: 0px 10px;
+            margin-bottom: 10px;
+            input{
+                border: none;
+                border-bottom: 1px solid #c1c1c1;    
+                border-radius: 0px;
+            }
+        }
+    }
+}

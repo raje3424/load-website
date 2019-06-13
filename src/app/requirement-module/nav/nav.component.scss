@@ -1,0 +1,42 @@
+._navbar{
+    background: #fff;
+    box-shadow: 0px 0px 3px 3px #c1c1c1;
+    height: 80px;
+    color: #ff0000;
+
+    ._the_title{
+        font-family: Avenir LT Stdx;
+        font-size: 24px;
+        padding: 25px 10px 20px 30px;
+    }
+
+    ._the_right_button{
+        height: 40px;
+        border-radius: 30px;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        font-family: Avenir LT Stdx;
+
+        ._r{
+            border: 1px solid #ff0000;
+            border-top-left-radius: 40px;
+            border-bottom-left-radius: 40px;
+            padding: 10px;
+            padding-left: 25px;
+        }
+        ._l{
+            background: #ff0000;
+            color: #fff;
+            padding: 10px;
+            border: 1px solid #ff0000;
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 40px;
+            padding-right: 25px;
+            padding-left: 20px;
+            cursor: pointer;
+        }
+
+    }   
+
+}

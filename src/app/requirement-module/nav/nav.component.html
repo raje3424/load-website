@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row _navbar">
+    
+      <div class="_the_title" [routerLink]="['/landingPage']" routerLinkActive="router-link-active" >
+        Gurukul's Home Tutor
+      </div>
+
+      <div class="_the_right_button">
+        <span class="_r" *ngIf="AffiliateOrAdmin">
+          {{AffiliateOrAdmin}}
+        </span> 
+        <span class="_r" *ngIf="!AffiliateOrAdmin">
+          Home
+        </span> 
+        <span class="_l"  (click)="toggleLoginSignupPopup()" *ngIf="!isLoggedIn">
+          Login / Signup
+        </span>
+        <span class="_l"  (click)="logOut()" *ngIf="isLoggedIn">
+          Logout
+        </span>
+      </div>
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>

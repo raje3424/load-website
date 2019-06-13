@@ -2,11 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { Demo2Component } from './demo2/demo2.component';
+import { NavComponent } from './nav/nav.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { EnquirerPageComponent } from './enquirer-page/enquirer-page.component';
+import { EnquiryPageComponent } from './enquiry-page/enquiry-page.component';
 
 const routes: Routes = [
   { 
-    path: '' , component : Demo2Component
+    path: '' , component : NavComponent,
+    children: [
+      { path: '' , component : LandingPageComponent },
+      { path: 'admin' , component : AdminPageComponent },
+      { path: 'enquirer' , component : EnquirerPageComponent },
+      { path: 'enquiry' , component : EnquiryPageComponent }
+    ]
   },
 ];
 

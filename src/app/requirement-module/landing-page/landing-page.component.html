@@ -1,0 +1,97 @@
+<div class="container-fluid _main_back_body">
+  <div class="row justify-content-md-center">
+    <div class="col-md-5 _message_a">
+      Learn from best faculty in Aurangabad.
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-3 col-md-2 _get_in_touch" [routerLink]="['enquiry']" routerLinkActive="router-link-active" >
+      Get in Touch
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container _loginPopUp" *ngIf="toggleLoginSignup">
+  <div class="row _header">
+      <div class="col _title">
+        Login
+      </div>
+    </div>
+    <div class="row _content">
+      <form class="col-12" [formGroup]="loginForm" (ngSubmit)="logIn()">
+        <div class="row form-group">
+          <input type="email" class="form-control" placeholder="Email" formControlName="email"/>
+          <div class="form_faliure" *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').touched">Email must be a valid email address</div>
+        </div>
+        <div class="row form-group">
+          <input type="password" class="form-control" placeholder="Password" formControlName="password"/>
+        </div>
+        <div class="row form-group">
+          <button type="submit" class="col-12 btn btn-outline-primary" [disabled]="!loginForm.valid">Login</button>
+        </div>
+        <div class="row form-group" style="text-align:center;" style="margin-bottom: 0px; padding-bottom: 0px;">
+          <div class="col-12" style="text-align: center">Or</div>
+          <button type="submit" class="col-12 btn btn-link" (click)="signupBlock()">Signup</button>
+        </div>
+      </form>
+    </div>
+</div>
+
+<div class="container _loginPopUp" *ngIf="signupBlockToggle">
+  <div class="row _header">
+    <div class="col _title">
+      Signup
+    </div>
+  </div>
+  <div class="row _content">
+    <form class="col-12" [formGroup]="signupForm" (ngSubmit)="signIn()">
+      <div class="row form-group">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email"/>
+        <div class="form_faliure" *ngIf="signupForm.get('email').hasError('email') && signupForm.get('email').touched">Email must be a valid email address</div>
+      </div>
+      <div class="row form-group">
+        <input type="text" class="form-control" placeholder="Full Name" formControlName="fullname"/>
+      </div>
+      <div class="row form-group">
+        <input type="text" class="form-control" placeholder="Mobile No" formControlName="mobNo"/>
+        <div class="form_faliure" *ngIf="signupForm.get('mobNo').hasError('error') && signupForm.get('mobNo').touched">Only numbers accepted!</div>
+        <div *ngIf="mobNo.errors?.pattern">
+          Number only!
+        </div>
+        <div *ngIf="mobNo.errors?.minlength">
+            Mobile No must be 10 digit.
+          </div> 
+          <div *ngIf="mobNo.errors?.maxlength">
+            Mobile No must be 10 digit.
+          </div>
+      </div>
+      <div class="row form-group">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password"/>
+        <div *ngIf="password.errors?.minlength">
+          Password must be at least 4 characters long.
+        </div> 
+        <div *ngIf="password.errors?.maxlength">
+          Password must be at most 8 characters long.
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confPassword"/>
+        <div *ngIf="password.errors?.minlength">
+          Password must be at least 4 characters long.
+        </div> 
+        <div *ngIf="password.errors?.maxlength">
+          Password must be at most 8 characters long.
+        </div>
+      </div>
+      <div class="row form-group">
+        <button type="submit"  [disabled]="!signupForm.valid" class="col-12 btn btn-outline-primary">Agree &amp; Signup</button>
+      </div>
+      <div *ngIf="successMsg">{{successMsg}}</div>
+      <div *ngIf="errorMsg">{{errorMsg}}</div>
+    </form>
+  </div>
+</div>
