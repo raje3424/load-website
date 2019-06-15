@@ -1,3 +1,54 @@
-<p>
-  enquirer-page works!
-</p>
+<div class="container">
+  <div class="row _userDash_panel">
+    <div class="col _user_name_panel">
+      Hello, <span class="_nameValue">{{affiName}}</span>
+    </div>
+  </div>
+
+  <!-- count row -->
+  <div class="row _userDash_panel justify-content-md-center">
+    <div class="col-4">
+      <div class="row _theInfo_box">
+        <div class="col-8 _values">
+          Total Referrals
+        </div>
+        <div class="col-4 _values" style="color: #ff0000">
+          {{totalReferals}}
+        </div>
+      </div>
+    </div>
+    <div class="col-4 offset-sm-1">
+      <div class="row _theInfo_box">
+        <div class="col-8 _values">
+          Active Points
+        </div>
+        <div class="col-4 _values" style="color: #ff0000">
+          {{activePoint}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <</ count row -->
+
+  <!-- code display panel >> -->
+  <div class="row _codeDisplay_panel">
+    <div class="col-12 _normalText">
+      Your Refferal Code
+    </div>
+    <div class="col-12 _codeValue">
+      {{referalCode}}
+    </div>
+    <div *ngIf="errorMsg">{{errorMsg}}</div>
+  </div>
+  <!-- <</ code display panel -->
+
+  <div class="row _fotterPanel">
+    <div class="col _info">
+      Total points earned till now are <span class="_highlight"> {{pointsEarned}} </span>
+    </div>
+    <div class="col _info">
+      To redeem your Active Points contact Please <span class="_highlight _link">click here.</span>
+    </div>
+  </div>
+
+</div>

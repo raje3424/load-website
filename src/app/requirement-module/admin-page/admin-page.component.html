@@ -1,3 +1,202 @@
-<p>
-  admin-page works!
-</p>
+<div class="container-fluid">
+
+  <div class="row _header_panel">
+    <div class="col-sm-8 offset-sm-2 _header_msg">
+      Hello, Admin
+    </div>
+    
+    <div class="col-sm-8 offset-sm-2">
+
+      <div class="row _short_info">
+        <div class="col _i_vals_panel">
+          Total Leads <span class="_value"> {{leadCount}} </span> |
+          Total Conversions <span class="_value"> {{convCount}} </span> |
+          Total Affiliates <span class="_value"> {{affiCount}} </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- nav bar >> -->
+  <div class="row _nav_panel">
+    <ul class="col-sm-8 offset-sm-2 nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" [class.active]="viewMode == 'tab1'" (click)="viewMode ='tab1'">Leads List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="viewMode == 'tab2'" (click)="viewModeTab2()">Affiliates List</a>
+      </li>
+    </ul>
+  </div>
+  <!-- <</ nav bar-->
+
+  <!-- lea page >> -->
+  <div class="row _listPanel justify-content-md-center" [ngSwitch]="viewMode">
+    <div class="col-sm-8">
+
+      <!-- Lead panel >> -->
+      <div class="row _content_list" *ngSwitchCase="'tab1'">
+          <div (click)="leadList()">Refresh</div>
+          <!-- lead list panel >> -->
+          <div class="col-12 _lead_inq_panel" (click)="ele.class = ele.class == 'showChildren' ? '' :  'showChildren'"
+          [ngClass]="{ hideChildren : ele.class !== 'showChildren' }" #ele *ngFor="let lead of leadListArr">
+          
+            <div class="row _top_info_p"><!-- top info p >> -->
+              
+              <div class="col-3 _classnb">
+                <span> {{lead.class}} </span> <span> {{lead.Board}}</span>
+              </div>
+              <div class="col-3 _studentName">
+                <span>{{lead.nameOfStudent}}</span>
+              </div>
+              <div class="col-3 _contact_no">
+                <span> {{lead.mobileNumber}} </span>
+              </div>
+              <div class="col-3 _status" (click)="changeStatus(lead.Status, lead.id)">
+                <span [ngClass]="{'_complete': lead.Status=='Completed', '_rejected':lead.Status=='Rejected', '_pending':lead.Status=='Pending' }" class=""> {{lead.Status}}</span>
+              </div>
+            </div><!-- <</ top info p -->
+            <div class="row _bottom_info_p">
+              <div class="col-12 _keyVal">
+                <div class="row _section"> <!-- row section 0>> -->
+                  <div class="col-xs-12 col-sm-3 _key">
+                    Detail Info
+                  </div>
+                  <div class="col-xs-12 col-sm-9 _val">
+                    <div class="row">
+                      <div class="col-12">
+                        <span class="_field_name">Parents Name : </span>
+                        <span class="_field_value"> {{lead.parentName}} </span>
+                      </div>
+                      <div class="col-12">
+                        <span class="_field_name">Address : </span>
+                        <span class="_field_value"> {{lead.Address}} </span>
+                      </div>
+                      <div class="col-12">
+                        <span class="_field_name">Landmark : </span>
+                        <span class="_field_value"> {{lead.Landmark}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- <</ row section 0 -->
+                <div class="row _section"> <!-- row section 1 -->
+                  <div class="col-xs-12 col-sm-3 _key">
+                    Contact Details
+                  </div>
+                  <div class="col-xs-12 col-sm-9 _val">
+                    <div class="row">
+                      <div class="col-12">
+                        <span class="_field_name">Email :</span>
+                        <span class="_field_value"> {{lead.Email}} </span>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- <</ row section 1-->
+                <div class="row _section"> <!-- row section 2 -->
+                  <div class="col-xs-12 col-sm-3 _key">
+                    Educational Details
+                  </div>
+                  <div class="col-xs-12 col-sm-9 _val">
+                    <div class="row">
+                      <div class="col-12">
+                        <span class="_field_name">School :</span>
+                        <span class="_field_value"> {{lead.School}} </span>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- <</ row section 2-->
+                <div class="row _section"><!-- row section 3 -->
+                  <div class="col-xs-12 col-sm-3 _key">
+                    Other Details
+                  </div>
+                  <div class="col-xs-12 col-sm-9 _val">
+                    <div class="row">
+                      <div class="col-12">
+                        <span class="_field_name"> Note / Requirment :</span>
+                        <span class="_field_value">{{lead.noteRequirnment}} </span>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- <</ row section 3-->
+              </div>
+            </div><!-- <</ bottom info p-->
+            
+          </div><!-- <</ lead list panel -->
+
+      </div><!-- <</ Lead panel -->
+
+      <!-- aff list panel -->
+      <div class="row _content_list" *ngSwitchCase="'tab2'">
+        
+          <div (click)="affiliateList()">Refresh</div>
+        <div class="col-12 _lead_inq_panel" div class="col-12 _lead_inq_panel" (click)="ele1.class = ele1.class == 'showChildren' ? '' :  'showChildren'"
+        [ngClass]="{ hideChildren : ele1.class !== 'showChildren' }" #ele1 *ngFor="let affiliate of affiliateListArr"><!-- entry 1 >> -->
+          <!-- aff list panel >> -->
+          <div class="row _top_info_p">
+            <!-- top info p >> -->
+        
+            <!-- <div class="col-4 _classnb">
+              <span> Onkar Raje </span>
+            </div> -->
+            <div class="col-4 _studentName">
+              <span> {{affiliate.nameOfStudent}} </span>
+            </div>
+            <div class="col-4 _contact_no">
+              <span> {{affiliate.mobileNumber}} </span>
+            </div>
+            
+          </div><!-- <</ top info p -->
+          <div class="row _bottom_info_p">
+            
+            <div class="col-12 _keyVal">
+              <div class="row _section">
+                <!-- row section 0>> -->
+                <div class="col-xs-12 col-sm-3 _key">
+                  Points 
+                </div>
+                <div class="col-xs-12 col-sm-9 _val">  
+                  <span class="_span_con">
+                    Active Points <span class="_span_value"><span> {{affiliate.activPoint}} </span></span> 
+                  </span>
+                  <span class="_span_con">
+                    Total Points <span class="_span_value">{{affiliate.TotalPoint}}</span>
+                  </span>
+                </div>
+              </div>
+              <div class="row _section">
+                <!-- row section 0>> -->
+                <div class="col-xs-12 col-sm-3 _key">
+                  Leads
+                </div>
+                <div class="col-xs-12 col-sm-9 _val">
+                  <span class="_span_con">
+                    Total <span class="_span_value"> {{affiliate.Total}} </span>
+                  </span>
+                  <span class="_span_con">
+                    Conversions <span class="_span_value"> {{affiliate.Conversion}} </span>
+                  </span>
+                  <span class="_span_con">
+                    Pending <span class="_span_value"> {{affiliate.Pending}} </span>
+                  </span>
+                  <span class="_span_con">
+                    Rejected <span class="_span_value"> {{affiliate.Rejected}}</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div><!-- <</ entry 1  -->
+
+      </div>
+      <!-- <</ aff list panel -->
+
+    </div>
+  </div>
+  <!-- <</ home page -->
+
+</div>

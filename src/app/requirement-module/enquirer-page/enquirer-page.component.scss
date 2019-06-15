@@ -1,0 +1,55 @@
+.container{
+
+    ._userDash_panel{
+        font-family: Avenir LT Stdx;
+        margin-top: 50px;
+        ._user_name_panel{
+            font-size: 30px;
+            ._nameValue{
+                font-weight: 600;
+            }
+
+        }
+
+        ._theInfo_box{
+            font-size: 30px;
+            border: 1px solid #E6E6E6;
+            padding: 30px 10px 30px 10px;
+            ._values{
+                text-align: center;
+            }
+        }
+    }
+
+    ._codeDisplay_panel{
+        margin-top: 100px;
+        font-family: Avenir LT Stdx;
+        text-align: center;
+        ._normalText{
+            font-size: 21px;
+        }
+        ._codeValue{
+            font-size: 60px;
+            color: #ff0000;
+        }
+    }
+
+    ._fotterPanel{
+        margin-top: 90px;
+        font-family: Avenir LT Stdx;
+        border-top: 1px solid #E6E6E6;
+        ._info{
+            font-size: 18px;
+            padding: 10px;
+            color: #7c7c7c;
+            text-align: center;
+            ._highlight{
+                color: #ff0000;
+            }
+            ._link{
+                cursor: pointer;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,130 @@
+.container-fluid{
+    margin-top: 30px;
+
+    ._header_panel{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        ._header_msg{
+            font-family: Avenir LT Stdx;
+            font-size: 28px;
+            padding: 0px;
+        }
+
+        ._short_info{
+            font-family: Avenir LT Stdx;
+            margin-top: 20px;
+            padding: 0px;
+            ._i_vals_panel{
+                padding: 0px;
+                color: #5c5b5b;
+                ._value{
+                    color: #ff0000;
+                    font-weight: 600;
+                }
+            }
+        }
+
+    }
+
+    .hideChildren>._bottom_info_p{
+        display: none;
+     }
+
+    ._nav_panel{
+        border-bottom: 0px;
+        .nav-link{
+            color: #858585;
+        }
+        .active{
+            border: 1px solid #ff0000;
+            border-bottom: none;
+            color: #ff0000;
+            font-weight: 600;
+        }
+    }
+
+    ._listPanel{
+        margin-top: 20px;
+        ._content_list{
+            background: #EFEFEF;
+            padding: 10px;
+            font-family: Avenir LT Stdx;
+            margin-bottom: 40px; 
+            // lead css >> 
+            ._lead_inq_panel{
+                margin-bottom: 10px;
+                background: #fff;
+                box-shadow: 0px 0px 3px #00000077;
+                ._top_info_p{
+                    padding: 10px;
+                    border-bottom: 1px solid #DFDFDF;
+                    text-align: center;
+                    font-size: 16px;
+                    ._classnb{
+                        span{
+                            padding: 5px;
+                        }
+                    }
+                    ._studentName{
+                        font-size: 16px;
+                    }
+                    ._contact_no{
+                        font-size: 16px;
+                    }
+                    ._status{
+                        text-align: right;
+                        ._complete{
+                            color: #09C202;
+                        }
+                        ._pending{
+                            color: #e2bd01;
+                        }
+                        ._rejected{
+                            color: #f24d00;
+                        }
+                    }
+                }
+                ._bottom_info_p{
+                    padding: 10px;
+                    ._keyVal{
+                        font-size: 16px;
+                        ._section{
+                            margin-bottom: 10px;
+                        }
+                        ._key{
+                            font-weight: 600;
+                        }
+                        ._val{
+                            border-left: 1px solid #DFDFDF;
+                            .row{
+                                margin-bottom: 10px;
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                ._field_name{
+                                    font-weight: 600;
+                                }
+                                ._field_value{
+                                    padding-left: 10px;
+                                }
+
+                            }
+                            ._span_con{
+                                font-family: Avenir LT Stdx;
+                                margin-right: 20px;
+                                border-right: 1px solid #5c5b5b;
+                                ._span_value{
+                                    color: #ff0000;
+                                    font-weight: 600;
+                                    margin-right: 10px;
+                                    margin-left: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            } // <</ lead css 
+        }
+    }
+
+
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { CommunicationService } from '../../../_service/communication.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy {
 
   currentValue: any;
   isLoggedIn: boolean = false;
