@@ -5,15 +5,15 @@ import { SiteComponent } from './site/site.component';
 
 
 const routes: Routes = [
-  { 
+  {
     path: '' , component : SiteComponent
   },
   {
-    path:'influencer',
+    path: 'influencer',
     loadChildren: 'src/app/influencer-module/influencer-module.module#InfluencerModuleModule'
   },
   {
-    path:'requirement',
+    path: 'requirement',
     loadChildren: 'src/app/requirement-module/requirement-module.module#RequirementModuleModule'
   },
 ];

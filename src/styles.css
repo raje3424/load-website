@@ -210,6 +210,13 @@ title span {
   z-index: 9;
 }
 
+.section_1{
+  height: 800px;
+  background: url('src/assets/imgs/main_bg.png');
+  background-position: center center;
+  background-size: cover;
+}
+
 .section_1 h1{
   font-size: 50px;
   letter-spacing: 3px;
